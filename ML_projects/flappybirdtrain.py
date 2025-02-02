@@ -11,6 +11,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from FlappyBird import Bird
 
+import os
+
+os.chdir("ML_projects")
+
 # ================================
 # 1. Custom Flappy Bird Environment
 # ================================
@@ -351,12 +355,12 @@ def train_dqn(num_episodes=500, render=False):
 
 if __name__ == '__main__':
     # Train the agent. To see rendering, set render=True (note that rendering slows training).
-    num_episodes = 10000
+    num_episodes = 100
     trained_agent, rewards = train_dqn(num_episodes=num_episodes, render=False)
     # After training, export the trained model parameters to disk.
     df = pd.DataFrame(rewards)
-    df.to_csv('rewards.csv', index=False)
-    torch.save(trained_agent.policy_net.state_dict(), 'flappy_agent.pth')
-    fig, ax = plt.subplots(figsize=(10,10))
-    ax.scatter(np.arange(1, num_episodes+1),rewards, s=2, c='k')
-    fig.savefig("rewards.png")
+    #df.to_csv('rewards.csv', index=False)
+    #torch.save(trained_agent.policy_net.state_dict(), 'flappy_agent.pth')
+    #fig, ax = plt.subplots(figsize=(10,10))
+    #ax.scatter(np.arange(1, num_episodes+1),rewards, s=2, c='k')
+    #fig.savefig("rewards.png")

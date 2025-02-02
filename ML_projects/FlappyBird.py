@@ -1,5 +1,8 @@
 import pygame
 import random
+import os
+
+os.chdir("ML_projects")
 
 # Initialize Pygame modules
 pygame.init()
